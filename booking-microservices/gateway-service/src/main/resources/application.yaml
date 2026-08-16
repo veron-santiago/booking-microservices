@@ -1,0 +1,42 @@
+spring:
+  application:
+    name: gateway-service
+  config:
+    import: optional:configserver:http://localhost:8888
+  cloud: 
+    gateway: 
+      discovery: 
+        locator:
+          enabled: true
+      routes:
+        - id: user-service
+          uri: lb://user-service
+          predicates: 
+            - Path=/user/**,/auth/**
+
+        - id: booking-service
+          uri: lb://booking-service
+          predicates: 
+            - Path=/booking/**,/search/**
+
+        - id: sportsfacility-service
+          uri: lb://sportsfacility-service
+          predicates: 
+            - Path=/sportsfacility/**
+
+        - id: club-service
+          uri: lb://club-service
+          predicates: 
+            - Path=/club/**,/schedule/**
+
+server:
+  port: 8080
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      default-zone: http://localhost:8761/eureka
+    instance:
+      hostname: localhost

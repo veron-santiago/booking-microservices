@@ -1,0 +1,85 @@
+You are debugging a Spring Boot microservices system using Feign clients.
+
+PROBLEM:
+A 500 error occurs when calling:
+
+GET http://sportsfacility-service/sportsfacility/{id}
+
+Error:
+NullPointerException: Cannot invoke "ClubDto.getId()" because ... is null
+
+This is triggered indirectly from booking-service via:
+SportsFacilityFeignClient#getSportsFacilityById(Long)
+
+STACK TRACE (IMPORTANT CONTEXT):
+- booking-service → BookingService.createBooking()
+- Feign call → sportsfacility-service
+- sportsfacility-service returns 500
+- Root cause: NullPointerException involving ClubDto.getId()
+
+YOUR TASK:
+Find the EXACT line and root cause inside sportsfacility-service.
+
+DO NOT explain Feign or general concepts.
+DO NOT give high-level guesses.
+
+YOU MUST:
+
+1) Locate the endpoint:
+   - Controller handling GET /sportsfacility/{id}
+
+2) Trace the full execution path:
+   - Controller → Service → Mapper → any Feign clients
+
+3) Identify:
+   - Where ClubDto is obtained
+   - Where getId() is called on it
+
+4) Find the exact line where null is dereferenced.
+
+5) Explain WHY it is null:
+   - Feign returning null?
+   - Exception swallowed?
+   - Missing club?
+   - Bad mapping?
+
+6) Confirm if this pattern exists:
+   - clubFeignClient.getClubById(...)
+   - followed by club.getId() WITHOUT null check
+
+7) Output MUST include:
+
+- File name
+- Method name
+- Exact problematic line
+- Call chain leading to it
+
+FORMAT:
+
+ROOT CAUSE:
+<1-2 lines, precise>
+
+FAILING LINE:
+<code snippet>
+
+CALL FLOW:
+Controller → Service → (Mapper if any) → Feign → NPE
+
+WHY NULL:
+<exact reason, not generic>
+
+FIX:
+<minimal fix, no refactor>
+
+IMPORTANT:
+Assume full codebase access.
+Search aggressively across:
+- service
+- presentation
+- mapper
+- feign clients
+
+Focus ONLY on sportsfacility-service.
+Ignore booking-service except for context.
+
+GO.

@@ -1,0 +1,25 @@
+spring:
+  application:
+    name: club-service
+  jackson:
+    serialization:
+      write-dates-as-timestamps: false
+  cloud:
+    config:
+      enabled: false
+
+security:
+  jwt:
+    secret-key: "grI4bslWOluAzGtCqaJ+XCMX89Q2WZ8dEeKrn87jiXo="
+
+server:
+  port: ${PORT:${SERVER_PORT:0}}
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      default-zone: http://localhost:8761/eureka
+    instance:
+      instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}

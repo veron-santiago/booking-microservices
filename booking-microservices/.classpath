@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="booking-service/src/main/java"/>
+	<classpathentry kind="src" path="booking-service/src/test/java"/>
+	<classpathentry kind="src" path="club-service/src/main/java"/>
+	<classpathentry kind="src" path="club-service/src/test/java"/>
+	<classpathentry kind="src" path="config-service/src/main/java"/>
+	<classpathentry kind="src" path="config-service/src/test/java"/>
+	<classpathentry kind="src" path="sport-service/src/main/java"/>
+	<classpathentry kind="src" path="sport-service/src/test/java"/>
+	<classpathentry kind="src" path="sportsfacility-service/src/main/java"/>
+	<classpathentry kind="src" path="sportsfacility-service/src/test/java"/>
+	<classpathentry kind="src" path="user-service/src/main/java"/>
+	<classpathentry kind="src" path="user-service/src/test/java"/>
+	<classpathentry kind="output" path="booking-service/target/classes"/>
+</classpath>

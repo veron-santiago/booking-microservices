@@ -1,0 +1,42 @@
+spring:
+  application:
+    name: user-service
+  zipkin:
+    base-url: hhtp://localhost:9411
+    enabled: true
+  cloud:
+    config:
+      enabled: false
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  tracing:
+    sampling:
+      probability: 1.0
+
+server:
+  port: ${PORT:${SERVER_PORT:0}}
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      default-zone: http://localhost:8761/eureka
+    instance:
+      instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+
+resilience4j.circuitbreaker:
+  instances:
+    bookingsCB:
+      registerHealthIndicator: true 
+      slidingWindowSize: 10
+      permittedNumberOfCallsInHalfOpenState: 3
+      slidingwindowType: TIME_BASED
+      minimumNumberOfCalls: 4 
+      waitDurationInOpenState: 5s
+      failureRateThreshold: 50
+      eventConsumerBufferSize: 10

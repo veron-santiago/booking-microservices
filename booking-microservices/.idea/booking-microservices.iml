@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="JAVA_MODULE" version="4">
+  <component name="AdditionalModuleElements">
+    <content url="file://$MODULE_DIR$" dumb="true">
+      <sourceFolder url="file://$MODULE_DIR$/booking-service/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/club-service/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/config-service/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/eureka-service/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/gateway-service/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/sport-service/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/sportsfacility-service/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/user-service/src" isTestSource="false" />
+    </content>
+  </component>
+</module>

@@ -1,0 +1,9 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="true" type="CompoundRunConfigurationType">
+    <toRun name="booking-service" type="Application" />
+    <toRun name="club-service" type="Application" />
+    <toRun name="sportsfacility-service" type="Application" />
+    <toRun name="user-service" type="Application" />
+    <method v="2" />
+  </configuration>
+</component>
